@@ -7,6 +7,9 @@
   <version>1.0-SNAPSHOT</version>
   <name>dacruzer</name>
   <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -20,6 +23,7 @@
       <version>1.7.4.4</version>
       <scope>compile</scope>
     </dependency>
+    <!--
     <dependency>
       <groupId>net.sourceforge.robocode</groupId>
       <artifactId>robocode.battle</artifactId>
@@ -64,15 +68,16 @@
     </dependency>
     <dependency>
       <groupId>net.sourceforge.robocode</groupId>
-      <artifactId>robocode.testing</artifactId>
-      <version>1.7.4.4</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>net.sourceforge.robocode</groupId>
       <artifactId>picocontainer</artifactId>
       <version>2.14.2</version>
       <scope>compile</scope>
+    </dependency>
+    -->
+    <dependency>
+      <groupId>net.sourceforge.robocode</groupId>
+      <artifactId>robocode.testing</artifactId>
+      <version>1.7.4.4</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>
