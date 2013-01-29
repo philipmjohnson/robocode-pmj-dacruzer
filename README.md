@@ -6,7 +6,7 @@ Example project showing how to develop robocode robots using the Maven build sys
 1. Install robocode
 -------------------
 
-Install both the robocode basic distribution and the robocode testing plugin.  Both setup.jar files are available at: https://sourceforge.net/projects/robocode/files/robocode/1.7.4.4/. 
+Install both the robocode basic distribution and the robocode testing plugin.  Both of these setup.jar files are available [here](https://sourceforge.net/projects/robocode/files/robocode/1.7.4.4/). 
 
 Be sure to run the system manually from the command line to ensure that you have the appropriate Java installed and so forth. 
 
