@@ -19,12 +19,6 @@ public class DaCruzer extends Robot {
    */
   @Override
   public void run() {
-    System.out.println("starting");
-    
-    for (String property: System.getProperties().stringPropertyNames()) {
-      System.out.println(property + " " + System.getProperty(property));
-      
-    }
 
     // Get the field's dimensions.
     // Specifies battle field width
