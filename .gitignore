@@ -7,3 +7,7 @@ profile
 
 # Maven derived files that should not be committed
 target/*
+
+# Eclipse derived files that should not be committed
+
+.settings/*
