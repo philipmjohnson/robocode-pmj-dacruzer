@@ -118,101 +118,9 @@ Round 1 initializing..
 Let the games begin!
 ..
 Round 1 cleaning up.
-----------------------
-Round 2 initializing..
-Let the games begin!
-..
-Round 2 cleaning up.
-----------------------
-Round 3 initializing..
-Let the games begin!
-..
-Round 3 cleaning up.
-----------------------
-Round 4 initializing..
-Let the games begin!
-..
-Round 4 cleaning up.
-----------------------
-Round 5 initializing..
-Let the games begin!
-..
-Round 5 cleaning up.
-----------------------
-Round 6 initializing..
-Let the games begin!
-..
-Round 6 cleaning up.
-----------------------
-Round 7 initializing..
-Let the games begin!
-..
-Round 7 cleaning up.
-----------------------
-Round 8 initializing..
-Let the games begin!
-..
-Round 8 cleaning up.
-----------------------
-Round 9 initializing..
-Let the games begin!
-..
-Round 9 cleaning up.
-----------------------
-Round 10 initializing..
-Let the games begin!
-..
-Round 10 cleaning up.
-----------------------
-Round 11 initializing..
-Let the games begin!
-..
-Round 11 cleaning up.
-----------------------
-Round 12 initializing..
-Let the games begin!
-..
-Round 12 cleaning up.
-----------------------
-Round 13 initializing..
-Let the games begin!
-..
-Round 13 cleaning up.
-----------------------
-Round 14 initializing..
-Let the games begin!
-..
-Round 14 cleaning up.
-----------------------
-Round 15 initializing..
-Let the games begin!
-..
-Round 15 cleaning up.
-----------------------
-Round 16 initializing..
-Let the games begin!
-..
-Round 16 cleaning up.
-----------------------
-Round 17 initializing..
-Let the games begin!
-..
-Round 17 cleaning up.
-----------------------
-Round 18 initializing..
-Let the games begin!
-..
-Round 18 cleaning up.
-----------------------
-Round 19 initializing..
-Let the games begin!
-..
-Round 19 cleaning up.
-----------------------
-Round 20 initializing..
-Let the games begin!
-..
-Round 20 cleaning up.
+
+(test output deleted)
+
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.924 sec
 Running pmj.TestDaCruzerMovement
 Preparing battle...
@@ -221,51 +129,9 @@ Round 1 initializing..
 Let the games begin!
 ..
 Round 1 cleaning up.
-----------------------
-Round 2 initializing..
-Let the games begin!
-..
-Round 2 cleaning up.
-----------------------
-Round 3 initializing..
-Let the games begin!
-..
-Round 3 cleaning up.
-----------------------
-Round 4 initializing..
-Let the games begin!
-..
-Round 4 cleaning up.
-----------------------
-Round 5 initializing..
-Let the games begin!
-..
-Round 5 cleaning up.
-----------------------
-Round 6 initializing..
-Let the games begin!
-..
-Round 6 cleaning up.
-----------------------
-Round 7 initializing..
-Let the games begin!
-..
-Round 7 cleaning up.
-----------------------
-Round 8 initializing..
-Let the games begin!
-..
-Round 8 cleaning up.
-----------------------
-Round 9 initializing..
-Let the games begin!
-..
-Round 9 cleaning up.
-----------------------
-Round 10 initializing..
-Let the games begin!
-..
-Round 10 cleaning up.
+
+(test output deleted)
+
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.693 sec
 Running pmj.TestDaCruzerVersusSittingDuck
 Preparing battle...
@@ -274,51 +140,9 @@ Round 1 initializing..
 Let the games begin!
 ..
 Round 1 cleaning up.
-----------------------
-Round 2 initializing..
-Let the games begin!
-..
-Round 2 cleaning up.
-----------------------
-Round 3 initializing..
-Let the games begin!
-..
-Round 3 cleaning up.
-----------------------
-Round 4 initializing..
-Let the games begin!
-..
-Round 4 cleaning up.
-----------------------
-Round 5 initializing..
-Let the games begin!
-..
-Round 5 cleaning up.
-----------------------
-Round 6 initializing..
-Let the games begin!
-..
-Round 6 cleaning up.
-----------------------
-Round 7 initializing..
-Let the games begin!
-..
-Round 7 cleaning up.
-----------------------
-Round 8 initializing..
-Let the games begin!
-..
-Round 8 cleaning up.
-----------------------
-Round 9 initializing..
-Let the games begin!
-..
-Round 9 cleaning up.
-----------------------
-Round 10 initializing..
-Let the games begin!
-..
-Round 10 cleaning up.
+
+(test output deleted) 
+
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.62 sec
 
 Results :
@@ -332,7 +156,6 @@ Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Finished at: Mon Jan 28 14:44:59 HST 2013
 [INFO] Final Memory: 16M/309M
 [INFO] ------------------------------------------------------------------------
-[~/projecthosting/github/robocode-pmj-dacruzer]-> 
 ```
 
 To remove the robot from the robocode installation, invoke the clean target with the -D property:
@@ -355,7 +178,6 @@ To remove the robot from the robocode installation, invoke the clean target with
 [INFO] Finished at: Tue Jan 29 07:00:17 HST 2013
 [INFO] Final Memory: 6M/309M
 [INFO] ------------------------------------------------------------------------
-[~/projecthosting/github/robocode-pmj-dacruzer]-> 
 ```
 6.  Install robocode-pmj-dacruzer into Eclipse
 ----------------------------------------------
