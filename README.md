@@ -66,14 +66,14 @@ A typical output from one of these commands might be:
 
 The next step is to build and test the system. You use the standard Maven 'test' target.  There are two special aspects of this process of which you should be aware.  
 
-First, the RobotTestBed class that is used for the test cases requires the definition of a System Property called "robocode.home", which should point to the directory where Robocode is installed. To tell Maven the value of this property, you use the -Dargline command line value, as illustrated below.
+First, the RobotTestBed class that is used for the test cases requires the definition of a System Property called "robocode.home", which should point to the directory where Robocode is installed. To tell Maven the value of this property, you use the -D command line value, as illustrated below.
 
 Second, the Robocode runtime system needs your newly developed robot to be known to the system during testing.  To accomplish this, the pom.xml file defines a "copy-resource" goal that copies your robot binary from the target/classes directory to the robocode.home/robots directory after completing compilation. Take a look at the pom.xml file to see how this is done.   Note that this approach does not remove these files from the robocode installation after the testing process is done, which is a bug in the process.
 
 Here is an example of the command line used to build and test the system, along with the output.
 
 ```
-[~/projecthosting/github/robocode-pmj-dacruzer]-> mvn -DargLine="-Drobocode.home=/Users/johnson/robocode" test
+[~/projecthosting/github/robocode-pmj-dacruzer]-> mvn -Drobocode.home=/Users/johnson/robocode test
 [INFO] Scanning for projects...
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
