@@ -74,7 +74,7 @@ Note that this approach does not remove these files from the robocode installati
 
 Here is an example of the command line used to build and test the system, along with the output.
 
-```
+```shell
 [~/projecthosting/github/robocode-pmj-dacruzer]-> mvn -Drobocode.home=/Users/johnson/robocode test
 [INFO] Scanning for projects...
 [INFO]                                                                         
@@ -357,5 +357,28 @@ To remove the robot from the robocode installation, invoke the clean target with
 [INFO] ------------------------------------------------------------------------
 [~/projecthosting/github/robocode-pmj-dacruzer]-> 
 ```
+6.  Install robocode-pmj-dacruzer into Eclipse
+----------------------------------------------
+
+Now that the system is running from the command line, you'll want to also run it from Eclipse.  To do so, bring up Eclipse, and select File | Import | Maven | Existing Maven Projects, and then complete the dialog boxes to import your project.  Eclipse will read the POM file in order to determine the libraries to include on the build path.  
+
+To run the pmj.dacruzer robot within Eclipse, you must configure Eclipse and Robocode in the normal way:
+  * In the Run configuration, change the working directory to your Robocode installation directory. 
+  * In the Robocode window, select Options | Preferences | Development Options to add the target/classes directory so that Robocode will see your robot.
+
+To run the test cases, edit the Run configuration for each test to include -Drobocode.home=robocodeHomeDirectory as a VM argument. 
+
+7. Use this project as a template for your own development
+----------------------------------------------------------
+
+Once you have completed the above steps, you are ready to use this project for your own development. To do this:
+  * Duplicate the robocode-pmj-dacruzer directory, and rename it with your own robot's name.
+  * Edit the POM file, and change the top lines to correspond to your own robot name. 
+  * Import the project (as a Maven project) into Eclipse.
+  * In Eclipse, select the project (robocode-pmj-dacruzer), then right-click and Refactor | Rename to rename the project to your own robot name.
+
+
+
+
 
 
