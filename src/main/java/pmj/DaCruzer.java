@@ -11,6 +11,8 @@ import java.awt.Color;
  * @author Philip Johnson
  */
 public class DaCruzer extends Robot {
+  /** The bar var illustrates violation of a simple PMD rule (extra parentheses). */
+  public int bar = ((1 + 1));
 
   /**
    * Moves to successive corners and rotates the robot to maximize the chances

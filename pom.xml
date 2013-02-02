@@ -69,6 +69,17 @@
 
   <build>
     <plugins>
+      <!-- Explicitly indicate that our source and target code is Java 7. This removes a warning from Eclipse. -->
+      <!-- More details: http://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.0</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+ 
       <!-- After compilation, copy robot class(es) to ${robocode.home}/robots for testing. -->
       <!-- If you forget robocode.home on the command line, the build will create a dir named ${robocode.home} in the project dir. -->
       <plugin>
@@ -101,12 +112,13 @@
          <filesets>
            <fileset>
              <directory>${robocode.home}/robots/${project.groupId}</directory>
+             <directory>$${robocode.home}</directory>
            </fileset>
           </filesets>
         </configuration>
       </plugin>
 
-      <!-- Define the checkstyle plugin: fail the build during compile if source and test code does not pass. -->
+      <!-- Define the checkstyle plugin: fail the build during verify if source and test code does not pass. -->
       <!-- More details: http://maven.apache.org/plugins/maven-checkstyle-plugin/checkstyle-mojo.html -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -127,8 +139,65 @@
           <failsOnError>true</failsOnError>
         </configuration>
       </plugin>
-    </plugins>
 
+      <!-- Findbugs plugin. Run it as part of verify phase. -->
+      <!-- Details at: http://mojo.codehaus.org/findbugs-maven-plugin/check-mojo.html -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>2.5.2</version>
+        <executions>
+          <execution>
+            <phase>verify</phase> 
+            <goals>
+              <goal>check</goal> 
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+  
+
+    </plugins>
   </build>
+
+  <reporting>
+    <plugins>
+    <!-- PMD Plugin.  Run it as part of verify phase. -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>2.7.1</version>
+        <!--
+        <executions>
+          <execution>
+            <phase>verify</phase> 
+            <goals>
+              <goal>check</goal> 
+            </goals>
+          </execution>
+        </executions>
+        -->
+        <configuration>
+          <verbose>true</verbose>
+          <minimumTokens>100</minimumTokens>
+          <includeTests>true</includeTests>
+          <minimumPriority>0</minimumPriority>
+          <rulesets>
+            <ruleset>rulesets/basic.xml</ruleset>
+            <ruleset>rulesets/naming.xml</ruleset>
+            <ruleset>rulesets/design.xml</ruleset>
+            <ruleset>rulesets/unusedcode.xml</ruleset>
+          </rulesets>
+          <targetJdk>1.6</targetJdk>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>2.3</version>
+      </plugin>
+    </plugins>
+  </reporting>
 </project>
 
