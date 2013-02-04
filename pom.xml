@@ -156,19 +156,12 @@
         </executions>
       </plugin>
 
-  
-
-    </plugins>
-  </build>
-
-  <reporting>
-    <plugins>
-    <!-- PMD Plugin.  Run it as part of verify phase. -->
+      <!-- PMD Plugin.  Run it as part of verify phase. -->
+      <!-- Details at: http://maven.apache.org/plugins/maven-pmd-plugin/pmd-mojo.html -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
         <version>2.7.1</version>
-        <!--
         <executions>
           <execution>
             <phase>verify</phase> 
@@ -177,21 +170,23 @@
             </goals>
           </execution>
         </executions>
-        -->
         <configuration>
           <verbose>true</verbose>
           <minimumTokens>100</minimumTokens>
           <includeTests>true</includeTests>
-          <minimumPriority>0</minimumPriority>
           <rulesets>
-            <ruleset>rulesets/basic.xml</ruleset>
-            <ruleset>rulesets/naming.xml</ruleset>
-            <ruleset>rulesets/design.xml</ruleset>
-            <ruleset>rulesets/unusedcode.xml</ruleset>
+            <ruleset>http://ics-software-engineering.googlecode.com/svn/trunk/configfiles/pmd.rulesets.xml</ruleset>
           </rulesets>
           <targetJdk>1.6</targetJdk>
         </configuration>
       </plugin>
+    </plugins>
+  </build>
+
+
+  <reporting>
+    <plugins>
+      <!-- Provided to remove "[WARNING] Unable to locate Source XRef to link to - DISABLED" when running PMD. -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jxr-plugin</artifactId>
@@ -199,5 +194,7 @@
       </plugin>
     </plugins>
   </reporting>
+
+
 </project>
 
