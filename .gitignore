@@ -12,3 +12,5 @@ target/*
 # Eclipse derived files that should not be committed
 
 .settings/*
+
+\$\{robocode.home\}

@@ -11,7 +11,10 @@ import java.awt.Color;
  * @author Philip Johnson
  */
 public class DaCruzer extends Robot {
-
+  
+  // Illustrate PMD Error. 
+  // private String bar = new String("Bar");
+  
   /**
    * Moves to successive corners and rotates the robot to maximize the chances
    * of scanning another robot. 
@@ -19,7 +22,7 @@ public class DaCruzer extends Robot {
    */
   @Override
   public void run() {
-
+    
     // Get the field's dimensions.
     // Specifies battle field width
     double fieldWidth = getBattleFieldWidth();
@@ -81,4 +84,12 @@ public class DaCruzer extends Robot {
     double firePower = Math.min(400 / e.getDistance(), 3);
     this.fire(firePower);
   }
+  
+  //Illustrate FindBugs error, and incomplete code coverage.
+  /** Does nothing, just here to illustrate QA tools. */
+//  public void noOperation() {
+//    if (this.bar == "bar") {
+//      System.exit(0);
+//    }
+//  }
 }

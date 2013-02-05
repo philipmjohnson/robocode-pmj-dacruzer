@@ -118,7 +118,8 @@
         </configuration>
       </plugin>
 
-      <!-- Define the checkstyle plugin: fail the build during verify if source and test code does not pass. -->
+      <!-- Define the checkstyle plugin: Runs automatically during verify phase. -->
+      <!-- Run separately with:  mvn checkstyle:check -->
       <!-- More details: http://maven.apache.org/plugins/maven-checkstyle-plugin/checkstyle-mojo.html -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -140,7 +141,8 @@
         </configuration>
       </plugin>
 
-      <!-- Findbugs plugin. Run it as part of verify phase. -->
+      <!-- Findbugs plugin. Runs automatically during verify phase. -->
+      <!-- Run separately with: mvn findbugs:check -->
       <!-- Details at: http://mojo.codehaus.org/findbugs-maven-plugin/check-mojo.html -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -156,7 +158,8 @@
         </executions>
       </plugin>
 
-      <!-- PMD Plugin.  Run it as part of verify phase. -->
+      <!-- PMD Plugin.  Runs automatically during verify phase. -->
+      <!-- Run separately with: mvn pmd:check -->
       <!-- Details at: http://maven.apache.org/plugins/maven-pmd-plugin/pmd-mojo.html -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -180,9 +183,71 @@
           <targetJdk>1.6</targetJdk>
         </configuration>
       </plugin>
-    </plugins>
-  </build>
 
+
+      <!-- Jacoco Plugin.  Runs automatically during verify phase. -->
+      <!-- There is no independent way to run it at the moment. -->
+      <!-- Details at: http://www.eclemma.org/jacoco/trunk/doc/maven.html -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.6.2.201302030002</version>
+        <executions>
+          <execution>
+            <id>prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>check</id>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <configuration>
+              <check>
+                <classRatio>100</classRatio>
+                <methodRatio>100</methodRatio>
+              </check>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    
+    <!--  Provided to remove a spurious error from Eclipse. -->
+    <pluginManagement>
+    	<plugins>
+    		<plugin>
+    			<groupId>org.eclipse.m2e</groupId>
+    			<artifactId>lifecycle-mapping</artifactId>
+    			<version>1.0.0</version>
+    			<configuration>
+    				<lifecycleMappingMetadata>
+    					<pluginExecutions>
+    						<pluginExecution>
+    							<pluginExecutionFilter>
+    								<groupId>org.jacoco</groupId>
+    								<artifactId>jacoco-maven-plugin</artifactId>
+    								<versionRange>[0.6.2.201302030002,)</versionRange>
+    								<goals><goal>prepare-agent</goal></goals>
+    							</pluginExecutionFilter>
+    							<action><ignore></ignore></action>
+    						</pluginExecution>
+    					</pluginExecutions>
+    				</lifecycleMappingMetadata>
+    			</configuration>
+    		</plugin>
+    	</plugins>
+    </pluginManagement>
+  </build>
 
   <reporting>
     <plugins>
@@ -194,7 +259,5 @@
       </plugin>
     </plugins>
   </reporting>
-
-
 </project>
 
