@@ -86,7 +86,7 @@ public class DaCruzer extends Robot {
   }
   
   //Illustrate FindBugs error, and incomplete code coverage.
-  /** Does nothing, just here to illustrate QA tools. */
+//  /** Does nothing, just here to illustrate QA tools. */
 //  public void noOperation() {
 //    if (this.bar == "bar") {
 //      System.exit(0);
