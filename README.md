@@ -204,6 +204,9 @@ Once you have completed the above steps, you are ready to use this project for y
 
 The 'quality-assurance' branch extends the Maven POM file with additional plugins to support invocation of Checkstyle, PMD, FindBugs, and Jacoco.
 
+Checkstyle
+**********
+
 
 To run checkstyle by itself, invoke the checkstyle:check goal:
 
@@ -228,6 +231,11 @@ Audit done.
 [INFO] ------------------------------------------------------------------------
 [~/projecthosting/github/robocode-pmj-dacruzer]-> 
 ```
+
+If there had been an error, the build would have failed.
+
+PMD
+***
 
 To run PMD by itself, invoke the pmd:check goal:
 
@@ -257,6 +265,11 @@ To run PMD by itself, invoke the pmd:check goal:
 [~/projecthosting/github/robocode-pmj-dacruzer]-> 
 ```
 
+If there had been an error, the build would have failed.
+
+FindBugs
+********
+
 To run FindBugs by itself, invoke the findbugs:check goal:
 
 ```
@@ -283,6 +296,11 @@ To run FindBugs by itself, invoke the findbugs:check goal:
 [INFO] ------------------------------------------------------------------------
 [~/projecthosting/github/robocode-pmj-dacruzer]-> 
 ```
+
+If there had been an error, the build would have failed.
+
+Jacoco
+******
 
 Jacoco (the code coverage tool) cannot be run independently, but only as part of the verify goal, which also runs all of the preceeding quality assurance tools. Note that since code coverage requires running of the junit tests, the verify goal requires the robocode.home system property.  Here is example output from invoking the verify goal (with test case output removed):
 
@@ -385,6 +403,8 @@ Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [~/projecthosting/github/robocode-pmj-dacruzer]-> 
 ```
+
+Jacoco is configured to fail the build if class and method-level coverage is not 100%.  To see the coverage report, look in the target/site/jacoco directory. 
 
 
 
