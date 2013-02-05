@@ -232,6 +232,8 @@ Audit done.
 [~/projecthosting/github/robocode-pmj-dacruzer]-> 
 ```
 
+Checkstyle is configured to run the checks specified at: http://ics-software-engineering.googlecode.com/svn/trunk/configfiles/checkstyle.xml
+
 If there had been an error, the build would have failed.
 
 PMD
@@ -265,6 +267,8 @@ To run PMD by itself, invoke the pmd:check goal:
 [~/projecthosting/github/robocode-pmj-dacruzer]-> 
 ```
 
+PMD is configured to use the rules specified at: http://ics-software-engineering.googlecode.com/svn/trunk/configfiles/pmd.rulesets.xml.
+
 If there had been an error, the build would have failed.
 
 FindBugs
@@ -296,6 +300,8 @@ To run FindBugs by itself, invoke the findbugs:check goal:
 [INFO] ------------------------------------------------------------------------
 [~/projecthosting/github/robocode-pmj-dacruzer]-> 
 ```
+
+FindBugs is configured to use the default rules. 
 
 If there had been an error, the build would have failed.
 
