@@ -186,7 +186,7 @@
 
 
       <!-- Jacoco Plugin.  Runs automatically during verify phase. -->
-      <!-- There is no independent way to run it at the moment. -->
+      <!-- There is no independent way to run it at the moment.  -->
       <!-- Details at: http://www.eclemma.org/jacoco/trunk/doc/maven.html -->
       <plugin>
         <groupId>org.jacoco</groupId>

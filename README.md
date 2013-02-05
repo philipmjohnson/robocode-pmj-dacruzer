@@ -199,8 +199,41 @@ Once you have completed the above steps, you are ready to use this project for y
   * Import the project (as a Maven project) into Eclipse.
   * In Eclipse, select the project (robocode-pmj-dacruzer), then right-click and Refactor | Rename to rename the project to your own robot name.
 
-8. Quality assurance: running checkstyle
-----------------------------------------
+8. Quality assurance
+--------------------
+
+The 'quality-assurance' branch extends the Maven POM file with additional plugins to support invocation of Checkstyle, PMD, FindBugs, and Jacoco.
+
+You can invoke all of these tools at once by invoking the verify goal as follows: 
+
+```
+mvn -Drobocode.home={robocodeHome} verify
+```
+
+The build will fail if any of these targets generate warnings or errors. 
+
+To run checkstyle by itself, invoke:
+
+```
+mvn checkstyle:check
+```
+
+To run PMD by itself, invoke:
+
+```
+mvn pmd:check
+```
+
+To run FindBugs by itself, invoke:
+
+```
+mvn findbugs:check
+```
+
+Jacoco (the code coverage tool) cannot be run independently, but only as part of the verify goal.
+
+
+
 
 
 
