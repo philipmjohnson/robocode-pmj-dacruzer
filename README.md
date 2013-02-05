@@ -199,8 +199,8 @@ Once you have completed the above steps, you are ready to use this project for y
   * Import the project (as a Maven project) into Eclipse.
   * In Eclipse, select the project (robocode-pmj-dacruzer), then right-click and Refactor | Rename to rename the project to your own robot name.
 
-
-
+8. Quality assurance: running checkstyle
+----------------------------------------
 
 
 
