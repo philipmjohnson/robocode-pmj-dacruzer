@@ -204,33 +204,188 @@ Once you have completed the above steps, you are ready to use this project for y
 
 The 'quality-assurance' branch extends the Maven POM file with additional plugins to support invocation of Checkstyle, PMD, FindBugs, and Jacoco.
 
-You can invoke all of these tools at once by invoking the verify goal as follows: 
+
+To run checkstyle by itself, invoke the checkstyle:check goal:
 
 ```
-mvn -Drobocode.home={robocodeHome} verify
+[~/projecthosting/github/robocode-pmj-dacruzer]-> mvn checkstyle:check
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building dacruzer 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:check (default-cli) @ dacruzer ---
+[INFO] Starting audit...
+Audit done.
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.614s
+[INFO] Finished at: Tue Feb 05 11:30:49 HST 2013
+[INFO] Final Memory: 12M/309M
+[INFO] ------------------------------------------------------------------------
+[~/projecthosting/github/robocode-pmj-dacruzer]-> 
 ```
 
-The build will fail if any of these targets generate warnings or errors. 
-
-To run checkstyle by itself, invoke:
+To run PMD by itself, invoke the pmd:check goal:
 
 ```
-mvn checkstyle:check
+[~/projecthosting/github/robocode-pmj-dacruzer]-> mvn pmd:check
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building dacruzer 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] >>> maven-pmd-plugin:2.7.1:check (default-cli) @ dacruzer >>>
+[INFO] 
+[INFO] --- maven-pmd-plugin:2.7.1:pmd (pmd) @ dacruzer ---
+[INFO] 
+[INFO] <<< maven-pmd-plugin:2.7.1:check (default-cli) @ dacruzer <<<
+[INFO] 
+[INFO] --- maven-pmd-plugin:2.7.1:check (default-cli) @ dacruzer ---
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.356s
+[INFO] Finished at: Tue Feb 05 11:31:36 HST 2013
+[INFO] Final Memory: 15M/309M
+[INFO] ------------------------------------------------------------------------
+[~/projecthosting/github/robocode-pmj-dacruzer]-> 
 ```
 
-To run PMD by itself, invoke:
+To run FindBugs by itself, invoke the findbugs:check goal:
 
 ```
-mvn pmd:check
+[~/projecthosting/github/robocode-pmj-dacruzer]-> mvn findbugs:check
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building dacruzer 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] >>> findbugs-maven-plugin:2.5.2:check (default-cli) @ dacruzer >>>
+[INFO] 
+[INFO] --- findbugs-maven-plugin:2.5.2:findbugs (findbugs) @ dacruzer ---
+[INFO] 
+[INFO] <<< findbugs-maven-plugin:2.5.2:check (default-cli) @ dacruzer <<<
+[INFO] 
+[INFO] --- findbugs-maven-plugin:2.5.2:check (default-cli) @ dacruzer ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.493s
+[INFO] Finished at: Tue Feb 05 11:32:18 HST 2013
+[INFO] Final Memory: 15M/309M
+[INFO] ------------------------------------------------------------------------
+[~/projecthosting/github/robocode-pmj-dacruzer]-> 
 ```
 
-To run FindBugs by itself, invoke:
+Jacoco (the code coverage tool) cannot be run independently, but only as part of the verify goal, which also runs all of the preceeding quality assurance tools. Note that since code coverage requires running of the junit tests, the verify goal requires the robocode.home system property.  Here is example output from invoking the verify goal (with test case output removed):
 
 ```
-mvn findbugs:check
+[~/projecthosting/github/robocode-pmj-dacruzer]-> mvn -Drobocode.home=/Users/johnson/robocode verify
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building dacruzer 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.6.2.201302030002:prepare-agent (prepare-agent) @ dacruzer ---
+[INFO] argLine set to -javaagent:/Users/johnson/.m2/repository/org/jacoco/org.jacoco.agent/0.6.2.201302030002/org.jacoco.agent-0.6.2.201302030002-runtime.jar=destfile=/Users/johnson/projecthosting/github/robocode-pmj-dacruzer/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:check (default) @ dacruzer ---
+[INFO] Starting audit...
+Audit done.
+
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ dacruzer ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/johnson/projecthosting/github/robocode-pmj-dacruzer/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ dacruzer ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /Users/johnson/projecthosting/github/robocode-pmj-dacruzer/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:copy-resources (copy-resources) @ dacruzer ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ dacruzer ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/johnson/projecthosting/github/robocode-pmj-dacruzer/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ dacruzer ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /Users/johnson/projecthosting/github/robocode-pmj-dacruzer/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ dacruzer ---
+[INFO] Surefire report directory: /Users/johnson/projecthosting/github/robocode-pmj-dacruzer/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running pmj.TestDaCruzerFiring
+Loaded net.sf.robocode.api
+Loaded net.sf.robocode.core
+Loaded net.sf.robocode.battle
+Loaded net.sf.robocode.repository
+Loaded net.sf.robocode.host
+Preparing battle...
+----------------------
+
+(test output deleted)
+
+Round 10 cleaning up.
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.804 sec
+
+Results :
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.6.2.201302030002:report (report) @ dacruzer ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ dacruzer ---
+[INFO] Building jar: /Users/johnson/projecthosting/github/robocode-pmj-dacruzer/target/dacruzer-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> findbugs-maven-plugin:2.5.2:check (default) @ dacruzer >>>
+[INFO] 
+[INFO] --- findbugs-maven-plugin:2.5.2:findbugs (findbugs) @ dacruzer ---
+[INFO] Fork Value is true
+[INFO] Done FindBugs Analysis....
+[INFO] 
+[INFO] <<< findbugs-maven-plugin:2.5.2:check (default) @ dacruzer <<<
+[INFO] 
+[INFO] --- findbugs-maven-plugin:2.5.2:check (default) @ dacruzer ---
+[INFO] BugInstance size is 0
+[INFO] Error size is 0
+[INFO] No errors/warnings found
+[INFO] 
+[INFO] >>> maven-pmd-plugin:2.7.1:check (default) @ dacruzer >>>
+[INFO] 
+[INFO] --- maven-pmd-plugin:2.7.1:pmd (pmd) @ dacruzer ---
+[INFO] 
+[INFO] <<< maven-pmd-plugin:2.7.1:check (default) @ dacruzer <<<
+[INFO] 
+[INFO] --- maven-pmd-plugin:2.7.1:check (default) @ dacruzer ---
+[INFO] 
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.6.2.201302030002:check (check) @ dacruzer ---
+[INFO] All coverage checks have been met.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 15.800s
+[INFO] Finished at: Tue Feb 05 11:33:48 HST 2013
+[INFO] Final Memory: 38M/330M
+[INFO] ------------------------------------------------------------------------
+[~/projecthosting/github/robocode-pmj-dacruzer]-> 
 ```
 
-Jacoco (the code coverage tool) cannot be run independently, but only as part of the verify goal.
 
 
 
