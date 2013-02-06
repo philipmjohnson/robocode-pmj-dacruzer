@@ -86,5 +86,6 @@ public class TestDaCruzerFiring extends RobotTestBed {
     assertTrue("Bullet Power between 1.5 and 1.9", firePowerReachLevelTwo);
     assertTrue("Bullet Power between 2.0 and 2.4", firePowerReachLevelThree);
     assertTrue("Bullet Power greater than 2.5", firePowerReachLevelFour);
+    //assertTrue("foo", false);
   }
 }
