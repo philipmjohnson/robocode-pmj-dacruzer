@@ -112,11 +112,12 @@
          <filesets>
            <fileset>
              <directory>${robocode.home}/robots/${project.groupId}</directory>
-             <directory>$${robocode.home}</directory>
+             <directory>${basedir}/.settings</directory>
            </fileset>
           </filesets>
         </configuration>
       </plugin>
+      
       <!--  Support Javadoc. -->
       <!--  More info:  http://maven.apache.org/plugins/maven-javadoc-plugin/usage.html -->      
       <plugin>
@@ -124,6 +125,21 @@
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>2.9</version>
         <configuration>
+        </configuration>
+      </plugin>
+      
+      <!--  Support .zip distribution of the project.  -->
+      <!--  Invocation: mvn assembly:single -->
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <formats>
+            <format>zip</format>
+          </formats>
+          <descriptorRefs>
+            <descriptorRef>project</descriptorRef>
+          </descriptorRefs>
         </configuration>
       </plugin>
 
