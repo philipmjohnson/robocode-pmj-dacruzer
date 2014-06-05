@@ -23,7 +23,7 @@ public class TestDaCruzerVersusSittingDuck extends RobotTestBed {
    */
   @Override
   public String getRobotNames() {
-    return "sample.SittingDuck,pmj.DaCruzer";
+    return "pmj.DaCruzer,sample.SittingDuck";
   }
   
   /**
@@ -46,7 +46,7 @@ public class TestDaCruzerVersusSittingDuck extends RobotTestBed {
     // Sanity check that results[0] is DaCruzer.
     BattleResults daCruzerResults = battleResults[0];
     String robotName = daCruzerResults.getTeamLeaderName();
-    assertEquals("Check that results[1] is DaCruzer", "pmj.DaCruzer*", robotName);
+    assertEquals("Check that results[0] is DaCruzer", "pmj.DaCruzer*", robotName);
     
     // Check to make sure DaCruzer won every round.
     assertEquals("Check DaCruzer winner", getNumRounds(), daCruzerResults.getFirsts());
